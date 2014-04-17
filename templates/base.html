@@ -48,7 +48,7 @@
       <!-- Le logo -->
       <h1 class="blog-logo" itemprop="headline">
         <a id="blog-logo" href="{{ SITEURL }}" title="{{ SITENAME }}">
-          <img src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/img/logo.png" alt="{{ SITENAME }}">
+          <img width="260" height="60" src="{{THEME_STATIC_DIR}}/img/logosoa.jpg" alt="{{ SITENAME }}">
         </a>
       </h1>
       <!-- Le descripción -->
@@ -110,17 +110,15 @@
   {% block js_footer %}{% endblock %}
 
   {# Le Javascript#}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/js/bootstrap.min.js"></script>
-  <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/jquery.backstretch.js"></script>
-  <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/jquery.fitvids.js"></script>
-  <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/index.js"></script>
+  <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/js/jquery.backstretch.js"></script>
+  <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/js/jquery.fitvids.js"></script>
+  <script src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/js/index.js"></script>
 
-  {% if blog.cover%}
   <script>
-    $.backstretch("{{ blog.cover}}");
+    $.backstretch("{{ SITEURL }}/{{THEME_STATIC_DIR}}/img/cover.jpg");
   </script>
-  {% endif %}
-
 
 </body>
 </html>
