@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<main id="content" class="text-center container" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog" >
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      {% for article in articles_page.object_list %}
+        <article class="{{post_class}}" role="article" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+          <h2 class="post-title" role="heading" itemprop="headline">
+            <a href="{{article.url}}" rel="bookmark" itemprop="url">{{article.title}}</a>
+          </h2>
+          <div class="post-meta">
+            <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished"><i class="icon-time"></i> {{ article.date|strftime('%B %d de %Y')}}</time> 
+            {% if article.tags %}
+              &bull; 
+              <span class="tags">Etiquetado como: 
+                {% for t in article.tags %}
+                  <a href="{{ SITEURL }}/{{ t.url }}">{{ t }}</a>
+                {% endfor %}     
+              </span>
+            {% endif %}
+          </div>
+          <div class="post-excerpt text-left" itemprop="description">
+            <p>{{ article.content|striptags|truncate(350, True) }}</p>
+          </div>
+          <div class="read-more">
+            <a href="{{article.url}}" class="btn btn-primary" title="Continua leyendo {{article.title}}">Sigue Leyendo</a>
+          </div>
+        </article>
+      {% endfor %}
+      <ul class="pagination">
+        {% if articles_page.has_previous() %}
+          <li><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&laquo; Anterior</a></li>
+        {% endif %}
+        <li class="active"><a href="#">Página {{ articles_page.number }} de {{ articles_paginator.num_pages }}</a></li>
+        {% if articles_page.has_next() %}
+          <li><a href="{{ SITEURL }}/{{ articles_next_page.url }}">Siguiente &raquo;</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</main>
+{% endblock content %}
