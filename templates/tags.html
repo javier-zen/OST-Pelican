@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block meta_title %}Nube de Etiquetas | {{SITENAME}}{% endblock %}
+{% block meta_description %}Todas las etiquetas utilizadas{% endblock %}
+{# block meta_header %}<meta name="robots" content="noindex,nofollow"/>{% endblock meta_header #}
+
+
+{% block content %}
+<main id="content" class="text-center container" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog" >
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <header class="tag-archive-header">
+        <h2>Nube de Etiquetas</h2>
+      </header>
+      <ul>
+        {% for tag in tag_cloud %}
+          <li class="tag-{{ tag.1 }}"><a href="/tag/{{ tag.0 }}/">{{ tag.0 }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
+{% endblock content %}

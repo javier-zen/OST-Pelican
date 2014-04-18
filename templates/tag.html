@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
-{%block content%}
+{% block title %}Etiqueta {{tag}} | {{SITENAME}}{% endblock %}
+{% block meta_description %}Artículos etiquetados con: {{ tag }}{% endblock %}
+{# block meta_header %}<meta name="robots" content="noindex,nofollow"/>{% endblock meta_header #}
+
+
+{% block content %}
 <main id="content" class="text-center container" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog" >
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      {% for article in articles_page.object_list %}
+      <header class="tag-archive-header">
+        <h2>Archivo de etiqueta: {{tag}}</h2>
+      </header>
+      {% for article in articles %}
         <article class="{{post_class}}" role="article" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
           <h2 class="post-title" role="heading" itemprop="headline">
             <a href="{{ SITEURL }}/{{article.url}}" rel="bookmark" itemprop="url">{{article.title}}</a>
@@ -24,7 +32,7 @@
             <p>{{ article.content|striptags|truncate(350, True) }}</p>
           </div>
           <div class="read-more">
-            <a href="{{article.url}}" class="btn btn-info" title="Continua leyendo {{article.title}}">Sigue Leyendo</a>
+            <a href="{{ SITEURL }}/{{article.url}}" class="btn btn-info" title="Continua leyendo {{article.title}}">Sigue Leyendo</a>
           </div>
         </article>
       {% endfor %}
@@ -36,7 +44,7 @@
         {% if articles_page.has_next() %}
           <li><a href="{{ SITEURL }}/{{ articles_next_page.url }}">Siguiente &raquo;</a></li>
         {% endif %}
-      </ul>
+      </ul>      
     </div>
   </div>
 </main>

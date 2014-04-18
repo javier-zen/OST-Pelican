@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block meta_title %}{{ page.title }} | {{SITENAME}}{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block content %}
+<main id="content" class="container" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog" >
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+      <article class="{{post_class}}" role="article" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+        <h1 class="post-title text-center" role="heading" itemprop="headline">
+          {{page.title}}
+        </h1>
+        <div class="post-content" itemprop="articleBody">
+          {{ page.content }}
+        </div>
+        <footer class="post-footer">
+          {# Caja de Autor #}
+          <div class="clearfix" id="ost-post-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+            <h3 class="sr-only">Autor</h3>
+            <img src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/img/ff2.jpg" class="author-avatar" alt="{{ page.author }}">
+            <div class="author-details">
+              <h4 itemprop="name">{{ page.author }}</h4>
+              <p>
+                He trabajado en departamentos de IT los últimos 10 años. Tengo experiencia en servidores basados en Linux, programación en Python, PHP, HTML, CSS. Mi experiencia me permite ofrecerles un amplio portafolios de servicios de administración de tecnologías de información que garanticen la operación continua de sus sitios web con un desempeño óptimo.
+              </p>
+              <p>
+                <a href="http://soa.uno" rel="author" itemprop="url">Visita SOA.1</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </div>
+</main>
+{% endblock content %}
