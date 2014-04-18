@@ -5,6 +5,7 @@ Master Stylesheet
 
 Theme:			Stretch Ghost Theme by Dreams Online Themes
 Version: 		1.0
+URL:			http://www.harishchouhan.com/free-theme-for-ghost-ost/
 
 
 Brown: 		#69605C;
@@ -238,14 +239,13 @@ article h2.post-title {
 	}
 
 	#ost-post-author img {
-		float: left;
+		float: left; 
 		padding-right: 50px;
 
 	}
 
 	#ost-post-author .author-details {
-		float: left;
-
+		/* float: left; */
 	}
 
 }

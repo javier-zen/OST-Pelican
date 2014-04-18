@@ -25,7 +25,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ SITENAME }}">
     <meta property="og:description" content="{{ DESCRIPTION }}">
-    <meta property="og:site_name" content="{{ DESCRIPTION }}">
+    <meta property="og:site_name" content="{{SITENAME}} - {{DESCRIPTION}}">
     <meta property="fb:admins" content="{{ FACEBOOKADMIN }}">
   {% endblock meta_facebook %}
 
@@ -47,8 +47,8 @@
     <div class="container text-center">
       <!-- Le logo -->
       <h1 class="blog-logo" itemprop="headline">
-        <a id="blog-logo" href="{{ SITEURL }}" title="{{ SITENAME }}">
-          <img width="260" height="60" src="{{THEME_STATIC_DIR}}/img/logosoa.jpg" alt="{{ SITENAME }}">
+        <a id="blog-logo" href="/" title="{{ SITENAME }}">
+          <img width="260" height="60" src="{{ SITEURL }}/{{THEME_STATIC_DIR}}/img/logosoa.jpg" alt="{{ SITENAME }}">
         </a>
       </h1>
       <!-- Le descripción -->
