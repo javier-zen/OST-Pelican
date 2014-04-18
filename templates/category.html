@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 
+{% block meta_title %}Categoría {{ category }}{% endblock %}
+{% block meta_description %}Archivo de la categoría: {{ category }}{% endblock %}
+{# block meta_header %}<meta name="robots" content="noindex,nofollow"/>{% endblock meta_header #}
+
+
 {%block content%}
 <main id="content" class="text-center container" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog" >
+
+<div class="jumbotron" id="content">
+  <div class="container">
+    <h1>{{ category }}</h1>
+    <p>Artículos en la categoría: <strong>{{ category }}</strong>.</p>
+  </div>
+</div>
+
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      {% for article in articles_page.object_list %}
+      {% for article in articles %}
         <article class="{{post_class}}" role="article" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
           <h2 class="post-title" role="heading" itemprop="headline">
             <a href="{{ SITEURL }}/{{article.url}}" rel="bookmark" itemprop="url">{{article.title}}</a>
@@ -24,7 +37,7 @@
             <p>{{ article.content|striptags|truncate(350, True) }}</p>
           </div>
           <div class="read-more">
-            <a href="{{article.url}}" class="btn btn-primary" title="Continua leyendo {{article.title}}">Sigue Leyendo</a>
+            <a href="{{ SITEURL }}/{{article.url}}" class="btn btn-primary" title="Continua leyendo {{article.title}}">Sigue Leyendo</a>
           </div>
         </article>
       {% endfor %}

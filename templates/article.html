@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
-{% block metatwitter %}
+{% block meta_title %}{{ article.title|striptags }} | {{ SITENAME }}{% endblock meta_title %}
+{% block meta_description %}{{ article.content|striptags|truncate(150, True) }}{% endblock meta_description %}
+{% block metakeywords %}{% for tag in article.tags %}{{tag}} {% endfor %}{% endblock metakeywords %}
+
+{% block meta_twitter %}
   {# Configuración de Twitter Cards #}
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="{{TWITTERSITE}}">
@@ -8,9 +12,9 @@
   <meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}">
   <meta name="twitter:title" content="{{ article.title|striptags }}">
   <meta name="twitter:description" content="{{ article.content|striptags|truncate(150, True) }}">
-{% endblock metatwitter %}
+{% endblock meta_twitter %}
 
-{% block metafacebook %}
+{% block meta_facebook %}
   {# OpenGraph de Facebook #}
   <meta property="og:site_name" content="{{SITENAME}} - {{DESCRIPCION}}">
   <meta property="og:locale" content="es_LA">
@@ -20,7 +24,7 @@
   <meta property="og:title" content="{{ article.title|striptags }}">
   <meta property="og:description" content="{{ article.content|striptags|truncate(150, True) }}">
   <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
-{% endblock metafacebook %}
+{% endblock meta_facebook %}
 
 {% block meta_header %}
   {% for tag in article.tags %}
