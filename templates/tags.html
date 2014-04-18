@@ -12,7 +12,7 @@
       <header class="tag-archive-header">
         <h2>Nube de Etiquetas</h2>
       </header>
-      <ul>
+      <ul class="tagcloud">
         {% for tag in tag_cloud %}
           <li class="tag-{{ tag.1 }}"><a href="/tag/{{ tag.0 }}/">{{ tag.0 }}</a></li>
         {% endfor %}
