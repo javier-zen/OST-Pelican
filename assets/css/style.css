@@ -249,3 +249,40 @@ article h2.post-title {
 	}
 
 }
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	11. Nube de etiquetas
+/*-----------------------------------------------------------------------------------*/
+
+ul.tagcloud {
+  list-style: none;
+  padding: 0;
+}
+ul.tagcloud li {
+  display: inline-block;
+}
+ul.tagcloud li.tag-1 {
+  font-size: 25px;
+}
+ul.tagcloud li.tag-2 {
+  font-size: 22px;
+}
+ul.tagcloud li.tag-3 {
+  font-size: 19px;
+}
+ul.tagcloud li.tag-4 {
+  font-size: 16px;
+}
+ul.tagcloud li.tag-5 {
+  font-size: 13px;
+}
+ul.tagcloud li.tag-6 {
+  font-size: 10px;
+}
+ul.tagcloud li.tag-7 {
+  font-size: 7px;
+}
+ul.tagcloud li.tag-8 {
+  display: none;
+}
